@@ -1,0 +1,5 @@
+============================================================================
+Conectarse a beaglebone black medianteuna terminal, como por ejemplo picocom
+
+$ picocom -b 115200 /dev/ttyUSB0
+============================================================================

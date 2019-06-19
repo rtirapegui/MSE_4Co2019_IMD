@@ -1,0 +1,21 @@
+=====================================================================================
+Comandos para u-boot usando cable ethernet (ejecutar de a uno en el prompt de u-boot)
+=====================================================================================
+
+$ env default -f -a
+$ setenv ipaddr 192.168.0.100
+$ setenv serverip 192.168.0.1
+--------------------------------------------------------------------------------------
+$ setenv bootargs root=/dev/nfs rw ip=192.168.0.100 console=ttyO0,115200n8 nfsroot=192.168.0.1:/home/rodrigo/linux-kernel-labs/modules/nfsroot,nfsvers=3
+--------------------------------------------------------------------------------------
+$ tftp 0x81000000 zImage
+$ tftp 0x82000000 am335x-customboneblack.dtb
+$ bootz 0x81000000 - 0x82000000
+--------------------------------------------------------------------------------------
+Loguearse con usuario: root pass: none
+
+======================================================================================
+Desde otra terminal, reiniciar el servidor NFS mediante
+
+$ sudo /etc/init.d/nfs-kernel-server restart
+======================================================================================
